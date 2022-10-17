@@ -53,12 +53,14 @@ function restoreCart() {
   getCart.innerHTML = localStorage.getItem('produtosSalvos');
   setTotalPrice();
 }
+
 function createCustomElement(element, className, innerText) {
-  const e = document.createElement(element);
-  e.className = className;
-  e.innerText = innerText;
-  return e;
+  const create = document.createElement(element);
+  create.className = className;
+  create.innerText = innerText;
+  return create;
 }
+
 
 function createProductItemElement({ sku, name, image }) {
   const section = document.createElement('section');
