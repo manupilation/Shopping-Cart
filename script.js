@@ -74,6 +74,13 @@ getDelButton.addEventListener('click', (deleteAllCart));
 
 getCart.addEventListener('click', (cartItemClickListener));
 
+function createCartItemElement({ id: sku, title: name, price: salePrice }) {
+  const li = document.createElement('li');
+  li.className = 'cart__item';
+  li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
+  li.addEventListener('click', cartItemClickListener);
+  getCart.appendChild(li);
+}
   const section = document.createElement('section');
   section.className = 'item';
 
