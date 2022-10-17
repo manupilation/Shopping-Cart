@@ -49,6 +49,10 @@ function saveCart() {
   setTotalPrice();
 }
 
+function restoreCart() {
+  getCart.innerHTML = localStorage.getItem('produtosSalvos');
+  setTotalPrice();
+}
 function createCustomElement(element, className, innerText) {
   const e = document.createElement(element);
   e.className = className;
