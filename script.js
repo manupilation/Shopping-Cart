@@ -1,3 +1,12 @@
+// Queria agradecer aos trybees, em especial Matheus Duarte pela força ^^!
+//= ============= Variáveis globais ==============
+const getCart = document.querySelector('.cart__items');
+const getDelButton = document.querySelector('.empty-cart');
+const getTotalPrice = document.querySelector('.total-price');
+const loading = document.querySelector('.loading');
+//= =============                   ==============
+
+//= ============= Começo do código ==============
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
   img.className = 'item__image';
