@@ -19,6 +19,25 @@ function getLocalStorageProducts() {
 
   return products;
 }
+
+function calcTotalPrice() {
+  const getProducts = getLocalStorageProducts();
+
+  if (getProducts === undefined || getProducts === null) return 0;
+
+  const products = getProducts.split('</li>');
+
+  const calc = products.filter((prod) => prod !== undefined).map((product) => {
+    const removeHTML = product.substring(product.indexOf('| PRICE'));
+  
+    const removePipesAndPrice = removeHTML.substring(10);
+
+    return removePipesAndPrice;
+  }).reduce((a, b) => Number(a) + Number(b), 0);
+
+  return calc.toFixed(2);
+}
+
 function createCustomElement(element, className, innerText) {
   const e = document.createElement(element);
   e.className = className;
