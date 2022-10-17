@@ -92,6 +92,8 @@ const setItemOnCart = async (itemId) => {
   }
   saveCart();
 };
+function createProductItemElement({ id: sku, title: name, thumbnail: image }) {
+  const items = document.querySelector('.items');
   const section = document.createElement('section');
   section.className = 'item';
 
@@ -99,8 +101,12 @@ const setItemOnCart = async (itemId) => {
   section.appendChild(createCustomElement('span', 'item__title', name));
   section.appendChild(createProductImageElement(image));
   section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
+  section.lastElementChild.addEventListener('click', (callback) => {
+    const getId = callback.target.parentElement.firstElementChild.innerHTML;
+    setItemOnCart(getId);
+  });
 
-  return section;
+  items.appendChild(section);
 }
 
 function getSkuFromProductItem(item) {
