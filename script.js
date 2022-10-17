@@ -55,10 +55,10 @@ function restoreCart() {
 }
 
 function createCustomElement(element, className, innerText) {
-  const create = document.createElement(element);
-  create.className = className;
-  create.innerText = innerText;
-  return create;
+  const newElement = document.createElement(element);
+  newElement.className = className;
+  newElement.innerText = innerText;
+  return newElement;
 }
 
 
