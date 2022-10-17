@@ -43,6 +43,12 @@ function setTotalPrice() {
 
   getTotalPrice.innerText = `R$ ${value}`;
 }
+
+function saveCart() {
+  localStorage.setItem('produtosSalvos', getCart.innerHTML);
+  setTotalPrice();
+}
+
 function createCustomElement(element, className, innerText) {
   const e = document.createElement(element);
   e.className = className;
