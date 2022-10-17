@@ -81,6 +81,17 @@ function createCartItemElement({ id: sku, title: name, price: salePrice }) {
   li.addEventListener('click', cartItemClickListener);
   getCart.appendChild(li);
 }
+
+const setItemOnCart = async (itemId) => {
+  try {
+    const product = await (await fetch(`https://api.mercadolibre.com/items/${itemId}`)
+    ).json();
+      createCartItemElement(product);
+  } catch (Error) {
+    alert(Error);
+  }
+  saveCart();
+};
   const section = document.createElement('section');
   section.className = 'item';
 
