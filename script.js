@@ -38,6 +38,11 @@ function calcTotalPrice() {
   return calc.toFixed(2);
 }
 
+function setTotalPrice() {
+  const value = calcTotalPrice();
+
+  getTotalPrice.innerText = `R$ ${value}`;
+}
 function createCustomElement(element, className, innerText) {
   const e = document.createElement(element);
   e.className = className;
