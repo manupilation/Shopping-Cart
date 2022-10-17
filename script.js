@@ -66,7 +66,10 @@ function cartItemClickListener(event) {
   saveCart();
 }
 
-function createProductItemElement({ sku, name, image }) {
+function deleteAllCart() {
+  getCart.innerHTML = '';
+  saveCart();
+}
   const section = document.createElement('section');
   section.className = 'item';
 
