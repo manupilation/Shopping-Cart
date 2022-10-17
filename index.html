@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Busca lá!</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header class="header">
+      <div>
+        <h1>Busca lá!</h1>
+        <p>Buscou ? Voilà !</p>
+      </div>
+      <div class="containerLabel">
+        <label for="search">Buscar produto:</label>
+        <input type="text" name="search" id="searchInput" placeholder="Móveis... Carros...">
+      </div>
+    </header>
+    <main class="container">
+      <section class="items"></section>
+      <section class="loading"> 
+        <span id="loading"></span>
+        <p id="loadingp">loading...</p>
+      </section>
+      <section class="cart">
+        <h2 class="cart__title">Carrinho de compras</h2>
+        <p class="total-price"></p>
+        <button class="empty-cart">Esvaziar carrinho</button>
+        <ul class="cart__items"></ul>
+      </section>
+    </main>
+  </body>
+  <script src="script.js"></script>
+</html>
