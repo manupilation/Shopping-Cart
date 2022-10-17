@@ -70,6 +70,10 @@ function deleteAllCart() {
   getCart.innerHTML = '';
   saveCart();
 }
+getDelButton.addEventListener('click', (deleteAllCart));
+
+getCart.addEventListener('click', (cartItemClickListener));
+
   const section = document.createElement('section');
   section.className = 'item';
 
