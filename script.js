@@ -14,6 +14,11 @@ function createProductImageElement(imageSource) {
   return img;
 }
 
+function getLocalStorageProducts() {
+  const products = localStorage.getItem('produtosSalvos');
+
+  return products;
+}
 function createCustomElement(element, className, innerText) {
   const e = document.createElement(element);
   e.className = className;
