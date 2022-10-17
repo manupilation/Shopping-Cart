@@ -61,6 +61,10 @@ function createCustomElement(element, className, innerText) {
   return newElement;
 }
 
+function cartItemClickListener(event) {
+  event.target.remove();
+  saveCart();
+}
 
 function createProductItemElement({ sku, name, image }) {
   const section = document.createElement('section');
