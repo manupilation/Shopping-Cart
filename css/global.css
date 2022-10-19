@@ -18,3 +18,38 @@
   --color-b2: #3D50F8;
 }
 
+.cwp {
+  color: var(--color-wp);
+}
+
+.cwm {
+  color: var(--color-wm);
+}
+
+.cgw {
+  color: var(--color-gw);
+}
+
+.cy1 {
+  color: var(--color-y1);
+}
+
+.cy2 {
+  color: var(--color-y2);
+}
+
+.cy3 {
+  color: var(--color-y3);
+}
+
+.cr2 {
+  color: var(--color-r2);
+}
+
+.cgr {
+  color: var(--color-gr);
+}
+
+.cg2 {
+  color: var(--color-g2);
+}
