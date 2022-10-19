@@ -8,10 +8,15 @@ const loading = document.querySelector('.loading');
 
 //= ============= Começo do código ==============
 function createProductImageElement(imageSource) {
+  const imageDiv = document.createElement('div');
   const img = document.createElement('img');
+
+  imageDiv.className = 'image-container';
   img.className = 'item__image';
   img.src = imageSource;
-  return img;
+  imageDiv.appendChild(img);
+
+  return imageDiv;
 }
 
 function getLocalStorageProducts() {
@@ -102,7 +107,7 @@ function createProductItemElement({ id: sku, title: name, thumbnail: image }) {
   section.appendChild(createCustomElement('span', 'item__sku', sku));
   section.appendChild(createCustomElement('span', 'item__title', name));
   section.appendChild(createProductImageElement(image));
-  section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
+  section.appendChild(createCustomElement('a', 'item__add', 'Adicionar ao carrinho!'));
   section.lastElementChild.addEventListener('click', (callback) => {
     const getId = callback.target.parentElement.firstElementChild.innerHTML;
     setItemOnCart(getId);
@@ -120,6 +125,7 @@ function getSiteApi() {
     .then((result) => {
       result.json()
     .then((another) => another.results.forEach((element) => {
+      console.log(another.results);
       createProductItemElement(element);
       loading.remove();
     }));
