@@ -15,7 +15,7 @@
   --color-gr: #3CCC09;
   --color-g2: #53E221;
   --color-bl: #1E32ED;
-  --color-b2: #3D50F8;
+  --color-bw: #3D50F8;
 }
 
 .cwp {
@@ -62,7 +62,7 @@
 }
 
 .font-1-xl-b {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .font-1-m-sb {
@@ -83,14 +83,14 @@
 }
 
 .font-2-xm-r {
-  font-weight: 1.25rem;
+  font-size: 1.25rem;
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
 }
 
 .font-2-m-m,
 .font-2-m-r {
-  font-weight: 1.5rem;
+  font-size: 1.5rem;
   font-weight: 400;
   font-family: 'Poppins', sans-serif;
 }
@@ -101,7 +101,7 @@
 
 
 .font-2-xs {
-  font-weight: .375rem;
+  font-size: .375rem;
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
 }
