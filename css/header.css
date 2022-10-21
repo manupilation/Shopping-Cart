@@ -86,3 +86,9 @@
     gap: 30px;
   }
 }
+
+@media (max-width: 440px) {
+  .containerLabel label {
+    display: none;
+  }
+}
