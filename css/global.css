@@ -105,3 +105,17 @@
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
 }
+
+@media (max-width: 900px) {
+  .font-2-m-m,
+  .font-2-m-r {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .font-1-xl,
+  .font-1-xl-b {
+    font-size: 2rem;
+  }
+}
