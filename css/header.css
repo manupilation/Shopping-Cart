@@ -1,0 +1,54 @@
+.header {
+  background-color: var(--color-b2);
+}
+
+.header-container {
+  max-width: 1070px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-container p {
+  margin-left: 35px;
+}
+
+#searchInput {
+  padding: 1rem;
+  border-radius: 5px 0 0 5px;
+  display: inline-block;
+}
+
+.containerLabel {
+  display: flex;
+  align-items: center;
+}
+
+.containerLabel input {
+  margin-left: 20px;
+}
+
+.containerLabel span {
+  background: #FFF url('../public/search_FILL0_wght400_GRAD0_opsz48.svg');
+  display: inline-block;
+  width: 47px;
+  height: 47px;
+  border-radius: 0px 5px 5px 0;
+  padding: .02rem;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+}
+
+.containerLabel span::before {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 35px;
+  background: #404040;
+  position: absolute;
+  top: 5px;
+  left: -3px;
+}
