@@ -1,0 +1,14 @@
+name: "Tests Checking"
+
+on: [ push ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
+

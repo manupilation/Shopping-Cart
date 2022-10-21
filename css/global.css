@@ -1,0 +1,121 @@
+:root {
+  --color-b1: #111111;
+  --color-b2: #222222;
+  --color-b3: #404040;
+  --color-wp: #FFFFFF;
+  --color-wm: #F5F5F5;
+  --color-gw: #E0E0E0;
+
+  --color-y1: #F6C80F;
+  --color-y2: #F0CB37;
+  --color-y3: #DCBF4B;
+
+  --color-rd: #DD0D0D;
+  --color-r2: #F45555;
+  --color-gr: #3CCC09;
+  --color-g2: #53E221;
+  --color-bl: #1E32ED;
+  --color-bw: #3D50F8;
+}
+
+.cwp {
+  color: var(--color-wp);
+}
+
+.cwm {
+  color: var(--color-wm);
+}
+
+.cgw {
+  color: var(--color-gw);
+}
+
+.cy1 {
+  color: var(--color-y1);
+}
+
+.cy2 {
+  color: var(--color-y2);
+}
+
+.cy3 {
+  color: var(--color-y3);
+}
+
+.cr2 {
+  color: var(--color-r2);
+}
+
+.cgr {
+  color: var(--color-gr);
+}
+
+.cg2 {
+  color: var(--color-g2);
+}
+
+.font-1-xl,
+.font-1-xl-b {
+  font-weight: 400;
+  font-size: 3rem;
+  font-family: 'Montserrat', 'Times New Roman', Times, serif;
+}
+
+.font-1-xl-b {
+  font-weight: 700;
+}
+
+.font-1-m-sb {
+  font-family: 'Montserrat', 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-size: .75rem;
+}
+
+.font-1-s-b,
+.font-1-s {
+  font-family: 'Montserrat', 'Times New Roman', Times, serif;
+  font-weight: 400;
+  font-size: .5rem;
+}
+
+.font-1-s-b {
+  font-weight: 600;
+}
+
+.font-2-xm-r {
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-2-m-m,
+.font-2-m-r {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-2-m-m {
+  font-weight: 500;
+}
+
+
+.font-2-xs {
+  font-size: .375rem;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 900px) {
+  .font-2-m-m,
+  .font-2-m-r {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .font-1-xl,
+  .font-1-xl-b {
+    font-size: 2rem;
+  }
+}
