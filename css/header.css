@@ -32,15 +32,12 @@
   margin-left: 20px;
 }
 
-.containerLabel span {
-  background: #FFF url('../public/search_FILL0_wght400_GRAD0_opsz48.svg');
+.search-img img {
+  background: #FFF;
   display: inline-block;
-  width: 47px;
-  height: 47px;
   border-radius: 0px 5px 5px 0;
   padding: .02rem;
   box-sizing: border-box;
-  position: relative;
   cursor: pointer;
 }
 
