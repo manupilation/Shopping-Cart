@@ -47,12 +47,14 @@
   height: 48px;
   width: 48px;
 }
+
+.search-img::before {
   content: '';
   display: inline-block;
   width: 2px;
   height: 35px;
   background: #404040;
   position: absolute;
-  top: 5px;
+  top: 6px;
   left: -3px;
 }
