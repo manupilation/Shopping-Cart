@@ -41,7 +41,12 @@
   cursor: pointer;
 }
 
-.containerLabel span::before {
+.search-img {
+  position: relative;
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+}
   content: '';
   display: inline-block;
   width: 2px;
