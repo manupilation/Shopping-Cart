@@ -106,6 +106,22 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.loading {
+  display: block;
+  width: 250px;
+  height: 250px;
+  border: solid 6px #e5e5e5;
+  border-top-color: var(--color-y1);
+  animation: is-rotating 1s infinite;
+  border-radius: 50%;
+}
+
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
 @media (max-width: 900px) {
   .font-2-m-m,
   .font-2-m-r {
