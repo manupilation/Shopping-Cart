@@ -155,14 +155,26 @@ function createSeeMoreButton(url) {
   return button;
 }
 
+function createProductItemElement({
+    id: sku,
+    title: name,
+    thumbnail: image,
+    original_price: op,
+    price,
+    permalink,
+  }) {
   const items = document.querySelector('.items');
   const section = document.createElement('section');
   section.className = 'item';
-
+  
+  const definePrices = createPrices(price, op);
+  
   section.appendChild(createCustomElement('span', 'item__sku', sku));
-  section.appendChild(createCustomElement('span', 'item__title', name));
   section.appendChild(createProductImageElement(image));
-  section.appendChild(createCustomElement('a', 'item__add', 'Adicionar ao carrinho!'));
+  section.appendChild(createCustomElement('span', 'item__title', reduceName(name)));
+  section.appendChild(renderPrices(definePrices));
+  section.appendChild(createSeeMoreButton(permalink));
+  section.appendChild(createCustomElement('a', 'item__add', '+'));
   section.lastElementChild.addEventListener('click', (callback) => {
     const getId = callback.target.parentElement.firstElementChild.innerHTML;
     setItemOnCart(getId);
