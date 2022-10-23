@@ -143,6 +143,18 @@ function renderPrices({ cPrice, oPrice }) {
 
   return pricesContainer;
 }
+
+function createSeeMoreButton(url) {
+  const button = document.createElement('a');
+  button.innerText = 'saiba mais';
+  button.classList = 'see-more-button';
+  button.setAttribute('target', '_blank');
+  button.setAttribute('rel', 'noopener noreferrer');
+  button.setAttribute('href', url);
+
+  return button;
+}
+
   const items = document.querySelector('.items');
   const section = document.createElement('section');
   section.className = 'item';
