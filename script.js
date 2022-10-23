@@ -99,7 +99,14 @@ const setItemOnCart = async (itemId) => {
   saveCart();
 };
 
-function createProductItemElement({ id: sku, title: name, thumbnail: image }) {
+/** @param {String} name */
+function reduceName(name) {
+  if (name.includes(',')) {
+    return name.substring(0, name.indexOf(','));
+  }
+
+  return name;
+}
   const items = document.querySelector('.items');
   const section = document.createElement('section');
   section.className = 'item';
