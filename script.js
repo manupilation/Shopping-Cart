@@ -107,6 +107,22 @@ function reduceName(name) {
 
   return name;
 }
+
+function createPrices(price, originalPrice) {
+  if (originalPrice === null || originalPrice === undefined) {
+    return { cPrice: price, oPrice: undefined };
+  }
+
+  if (price < originalPrice) {
+    return { cPrice: price, oPrice: originalPrice };
+  }
+
+  return {
+    cPrice: price,
+    oPrice: undefined,
+  };
+}
+
   const items = document.querySelector('.items');
   const section = document.createElement('section');
   section.className = 'item';
