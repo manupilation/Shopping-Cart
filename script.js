@@ -155,6 +155,7 @@ function createSeeMoreButton(url) {
   return button;
 }
 
+// eslint-disable-next-line max-lines-per-function
 function createProductItemElement({
     id: sku,
     title: name,
