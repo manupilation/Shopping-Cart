@@ -124,10 +124,12 @@ function getSiteApi() {
   fetch('https://api.mercadolibre.com/sites/MLB/search?q=computador')
     .then((result) => {
       result.json()
-    .then((another) => another.results.forEach((element) => {
-      console.log(another.results);
-      createProductItemElement(element);
-      loading.remove();
+    .then((another) => another.results.forEach((element, i) => {
+      setTimeout(() => {
+        loading.remove();
+        if (i >= 20) return;
+        createProductItemElement(element);
+      }, 1500);
     }));
   })
     .catch(() => console.log('Error'));
