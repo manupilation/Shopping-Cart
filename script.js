@@ -123,6 +123,26 @@ function createPrices(price, originalPrice) {
   };
 }
 
+function renderPrices({ cPrice, oPrice }) {
+  const pricesContainer = document.createElement('div');
+  pricesContainer.classList = 'prices-container';
+
+  if (oPrice) {
+    const createOriginalPrice = document.createElement('span');
+    createOriginalPrice.classList = 'originalPrice';
+    createOriginalPrice.innerText = `R$ ${oPrice}`;
+
+    pricesContainer.appendChild(createOriginalPrice);
+  }
+
+  const createCurrentPrice = document.createElement('span');
+  createCurrentPrice.classList = 'currentPrice';
+  createCurrentPrice.innerText = `R$ ${cPrice}`;
+
+  pricesContainer.appendChild(createCurrentPrice);
+
+  return pricesContainer;
+}
   const items = document.querySelector('.items');
   const section = document.createElement('section');
   section.className = 'item';
