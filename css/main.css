@@ -6,7 +6,7 @@
 }
 
 .cards-container {
-  padding: 40px 50px;
+  padding: 40px 40px;
   background-color: var(--color-gw);
   max-height: 550px;
   border-radius: 5px 0 0 0;
@@ -199,5 +199,16 @@
   .item {
     transform: scale(0.6);
     margin-bottom: -100px;
+  }
+}
+
+@media (max-width: 400px) {
+  .items {
+    margin-top: -100px;
+  }
+
+  .item {
+    transform: scale(0.5);
+    margin-bottom: -140px;
   }
 }
