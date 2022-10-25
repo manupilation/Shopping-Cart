@@ -11,7 +11,7 @@ function createProductImageElement(imageSource) {
   const imageDiv = document.createElement('div');
   const img = document.createElement('img');
 
-  imageDiv.className = 'image-container';
+  imageDiv.className = 'image-container grid-cl-f';
   img.className = 'item__image';
   img.src = imageSource;
   imageDiv.appendChild(img);
