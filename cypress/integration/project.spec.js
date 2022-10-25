@@ -11,6 +11,21 @@ const TOTAL_PRICE = '.total-price'
 
 let results = products.results
 
+function reduceName(name) {
+  if (name.includes(',')) {
+    return name.substring(0, name.indexOf(','));
+  }
+
+  return name.replace('+', ' + ').split(' ').reduce((a, b) => {
+    if (a.length < 50) {
+      // eslint-disable-next-line no-param-reassign
+      a += ` ${b}`;
+    }
+
+    return a;
+  }, '');
+}
+
 const addToCart = (index) => {
   cy.get(ITEM_SELECTOR)
     .should('exist')
@@ -27,7 +42,7 @@ const countCart = (amount) => {
 
 const checkPrice = (results, indexes) => {
   console.log(results)
-  cy.wait(1000);
+  cy.wait(2000);
   let total = 0;
   indexes.forEach(index => total += results[index].price);
   cy.get(TOTAL_PRICE)
@@ -48,27 +63,26 @@ describe('Shopping Cart Project', () => {
     it('Listagem de produtos', () => {
       cy.get(ITEM_SELECTOR)
         .should('exist')
-        .should('have.length', results.length);
+        .should('have.length', 20);
     });    
   });
 
   describe('2 - Adicione o produto ao carrinho de compras', () => {
     it('Adicione o produto ao carrinho de compras',() => {
-      cy.wait(1000);
-      addToCart(36);
+      cy.wait(2000);
+      addToCart(16);
       countCart(1);
-      console.log(results[36].id, results[36].title)
+      console.log(results[16].id, results[16].title)
       cy.get(CART_ITEMS)
         .children()
-        .first()
-        .should('have.text', `SKU: ${results[36].id} | NAME: ${results[36].title} | PRICE: $${results[36].price}`)
+        .should('contain', `${reduceName(results[16].title)}`)
     });
   });
   
   describe('3 - Remova o item do carrinho de compras ao clicar nele', () => {
     it('Remova o item do carrinho de compras ao clicar nele', () => {
-      addToCart(29);
-      addToCart(31);
+      addToCart(19);
+      addToCart(11);
       addToCart(15);
       cy.get(CART_ITEMS)
         .children()
@@ -91,27 +105,27 @@ describe('Shopping Cart Project', () => {
 
   describe('4 - Carregue o carrinho de compras através do **LocalStorage** ao iniciar a página', () => {
     it('Carregue o carrinho de compras através do **LocalStorage** ao iniciar a página', () => {
-      let first = 36;
-      let last = 29;
+      let first = 16;
+      let last = 19;
       cy.visit(PROJECT_URL, {
         onBeforeLoad(win) {
           win.fetch = fetchMock;
         },
       });
-      cy.wait(1000);
+      cy.wait(2000);
       addToCart(first);
       countCart(1);
       cy.get(CART_ITEMS)
         .children()
         .first()
-        .should('have.text', `SKU: ${results[first].id} | NAME: ${results[first].title} | PRICE: $${results[first].price}`)
+        .should('contain', `${reduceName(results[first].title)}`)
        
         addToCart(last);
-        cy.wait(1000);
+        cy.wait(2000);
       cy.get(CART_ITEMS)
         .children()
         .last()
-        .should('have.text', `SKU: ${results[last].id} | NAME: ${results[last].title} | PRICE: $${results[last].price}`)
+        .should('contain', `${reduceName(results[last].title)}`)
   
       cy.reload({
         onBeforeLoad(win) {
@@ -121,11 +135,11 @@ describe('Shopping Cart Project', () => {
       cy.get(CART_ITEMS)
         .children()
         .first()
-        .should('have.text', `SKU: ${results[first].id} | NAME: ${results[first].title} | PRICE: $${results[first].price}`)
+        .should('contain', `${reduceName(results[first].title)}`)
       cy.get(CART_ITEMS)
         .children()
         .last()
-        .should('have.text', `SKU: ${results[last].id} | NAME: ${results[last].title} | PRICE: $${results[last].price}`)
+        .should('contain', `${reduceName(results[last].title)}`)
     });
   });
 
@@ -138,17 +152,17 @@ describe('Shopping Cart Project', () => {
       });
       addToCart(5);
       checkPrice(results, [5]);
-      addToCart(42);
-      checkPrice(results, [5, 42]);
-      addToCart(36);
-      checkPrice(results, [5, 42, 36]);
+      addToCart(12);
+      checkPrice(results, [5, 12]);
+      addToCart(16);
+      checkPrice(results, [5, 12, 16]);
       addToCart(15);
-      checkPrice(results, [5, 42, 36, 15]);
+      checkPrice(results, [5, 12, 16, 15]);
       cy.get(CART_ITEMS)
         .children()
         .eq(1)
         .click()
-      checkPrice(results, [5, 36, 15]);
+      checkPrice(results, [5, 16, 15]);
     });
   });
 
@@ -170,7 +184,7 @@ describe('Shopping Cart Project', () => {
       cy.visit(PROJECT_URL)
       cy.get(LOADING)
         .should('exist')
-        .wait(3000)
+        .wait(4000)
         .should('not.exist');
     });
   });
