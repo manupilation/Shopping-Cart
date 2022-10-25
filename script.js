@@ -114,7 +114,14 @@ function reduceName(name) {
     return name.substring(0, name.indexOf(','));
   }
 
-  return name;
+  return name.replace('+', ' + ').split(' ').reduce((a, b) => {
+    if (a.length < 50) {
+      // eslint-disable-next-line no-param-reassign
+      a += ` ${b}`;
+    }
+
+    return a;
+  }, '');
 }
 
 function createPrices(price, originalPrice) {
