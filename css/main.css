@@ -131,3 +131,15 @@
   font-size: 2rem;
   cursor: pointer;
 }
+
+@media (max-width: 1320px) {
+  .items {
+    grid-template-columns: repeat(3, auto);
+    gap: 30px 20px;
+  }
+
+  .content-container {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
