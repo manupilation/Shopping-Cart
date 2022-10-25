@@ -141,19 +141,19 @@ function createPrices(price, originalPrice) {
 
 function renderPrices({ cPrice, oPrice }) {
   const pricesContainer = document.createElement('div');
-  pricesContainer.classList = 'prices-container';
+  pricesContainer.classList = 'prices-container grid-cl-f';
+
+  const createOriginalPrice = document.createElement('span');
+  createOriginalPrice.classList = 'originalPrice font-1-s-b cr2';
 
   if (oPrice) {
-    const createOriginalPrice = document.createElement('span');
-    createOriginalPrice.classList = 'originalPrice';
-    createOriginalPrice.innerText = `R$ ${oPrice}`;
-
+    createOriginalPrice.innerText = `R$ ${oPrice.toFixed(2).replace('.', ',')}`;
     pricesContainer.appendChild(createOriginalPrice);
   }
 
   const createCurrentPrice = document.createElement('span');
-  createCurrentPrice.classList = 'currentPrice';
-  createCurrentPrice.innerText = `R$ ${cPrice}`;
+  createCurrentPrice.classList = 'currentPrice font-1-s-b cg2';
+  createCurrentPrice.innerText = `R$ ${cPrice.toFixed(2).replace('.', ',')}`;
 
   pricesContainer.appendChild(createCurrentPrice);
 
