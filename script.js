@@ -82,9 +82,18 @@ getCart.addEventListener('click', (cartItemClickListener));
 
 function createCartItemElement({ id: sku, title: name, price: salePrice }) {
   const li = document.createElement('li');
+  const p = document.createElement('p');
+
+  p.className = 'cart_name grid-cl-f';
+  p.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
+  p.hidden = true;
+
   li.className = 'cart__item';
-  li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
+  // eslint-disable-next-line no-use-before-define
+  li.innerText = reduceName(name);
+
   li.addEventListener('click', cartItemClickListener);
+  li.appendChild(p);
   getCart.appendChild(li);
 }
 
