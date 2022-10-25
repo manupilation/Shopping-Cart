@@ -163,7 +163,7 @@ function renderPrices({ cPrice, oPrice }) {
 function createSeeMoreButton(url) {
   const button = document.createElement('a');
   button.innerText = 'saiba mais';
-  button.classList = 'see-more-button';
+  button.classList = 'see-more-button cwp font-2-xs';
   button.setAttribute('target', '_blank');
   button.setAttribute('rel', 'noopener noreferrer');
   button.setAttribute('href', url);
@@ -188,7 +188,7 @@ function createProductItemElement({
   
   section.appendChild(createCustomElement('span', 'item__sku', sku));
   section.appendChild(createProductImageElement(image));
-  section.appendChild(createCustomElement('span', 'item__title', reduceName(name)));
+  section.appendChild(createCustomElement('span', 'item__title font-1-s cgw', reduceName(name)));
   section.appendChild(renderPrices(definePrices));
   section.appendChild(createSeeMoreButton(permalink));
   section.appendChild(createCustomElement('a', 'item__add', '+'));
