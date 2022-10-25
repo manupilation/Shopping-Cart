@@ -154,3 +154,14 @@
   }
 }
 
+@media (max-width: 970px) {
+  .content-container {
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .items {
+    grid-template-columns: repeat(2, auto);
+    gap: 20px 20px;
+  }
+}
+
