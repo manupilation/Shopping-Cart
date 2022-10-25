@@ -191,3 +191,13 @@
     transform: scale(0.9);
   }
 }
+
+@media (max-width: 500px) {
+  .items {
+    margin-top: -80px;
+  }
+  .item {
+    transform: scale(0.6);
+    margin-bottom: -100px;
+  }
+}
