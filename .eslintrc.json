@@ -5,7 +5,9 @@
     "no-console": "off",
     "prefer-arrow-callback": "off",
     "func-names": "off",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "no-param-reassign": "off",
+    "max-lines-per-function": "off"
   },
   "env": {
     "browser": true

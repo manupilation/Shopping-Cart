@@ -74,8 +74,9 @@
 .font-1-s-b,
 .font-1-s {
   font-family: 'Montserrat', 'Times New Roman', Times, serif;
-  font-weight: 400;
-  font-size: .5rem;
+  font-weight: 500;
+  font-size: .7rem;
+  letter-spacing: .075rem;
 }
 
 .font-1-s-b {
@@ -101,9 +102,31 @@
 
 
 .font-2-xs {
-  font-size: .375rem;
-  font-weight: 500;
+  font-size: .4rem;
+  font-weight: 600;
   font-family: 'Poppins', sans-serif;
+  letter-spacing: .02rem;
+}
+
+.loading {
+  display: block;
+  width: 250px;
+  height: 250px;
+  border: solid 6px #e5e5e5;
+  border-top-color: var(--color-y1);
+  animation: is-rotating 1s infinite;
+  border-radius: 50%;
+}
+
+.grid-cl-f {
+  grid-column: 1 / -1;
+}
+
+
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
 }
 
 @media (max-width: 900px) {

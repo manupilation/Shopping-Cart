@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Busca lá!</title>
+
+    <script>document.documentElement.classList = ' js'</script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;600&family=Roboto:wght@400;500&family=Shippori+Antique+B1&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./css/style.css" />
@@ -26,18 +28,19 @@
         </div>
       </div>
     </header>
-    <main class="container">
-      <section class="loading"> 
-        <span id="loading"></span>
-        <p id="loadingp">loading...</p>
-      </section>
-      <section class="items"></section>
-      <section class="cart">
-        <h2 class="cart__title">Carrinho de compras</h2>
-        <p class="total-price"></p>
-        <button class="empty-cart">Esvaziar carrinho</button>
-        <ul class="cart__items"></ul>
-      </section>
+    <main class="content-container">
+      <div class="cards-container">
+        <section class="loading"></section>
+        <section class="items"></section>
+      </div>
+      <div class="cart-container">
+        <section class="cart">
+          <h2 class="cart__title">Carrinho de compras</h2>
+          <p class="total-price"></p>
+          <button class="empty-cart">Esvaziar carrinho</button>
+          <ul class="cart__items"></ul>
+        </section>
+      </div>
     </main>
   </body>
   <script src="script.js"></script>
