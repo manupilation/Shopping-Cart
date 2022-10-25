@@ -182,3 +182,12 @@
   }
 }
 
+@media (max-width: 570px) {
+  .items {
+    gap: 0px 0px;
+    margin-top: -30px;
+  }
+  .item {
+    transform: scale(0.9);
+  }
+}
