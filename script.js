@@ -29,8 +29,8 @@ function calcTotalPrice() {
   const getProducts = getLocalStorageProducts();
 
   if (getProducts === undefined || getProducts === null) return 0;
-
-  const products = getProducts.split('</li>');
+  
+  const products = getProducts.split('</p></li>');
 
   const calc = products.filter((prod) => prod !== undefined).map((product) => {
     const removeHTML = product.substring(product.indexOf('| PRICE'));
