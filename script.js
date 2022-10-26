@@ -248,9 +248,13 @@ function handleEnterSearch(event) {
   }
 }
 
+function setSearchEvent() {
+  search.addEventListener('click', handleSearchClick);
+  getSearchInput.addEventListener('keypress', handleEnterSearch);
 }
 
 window.onload = () => { 
-  getSiteApi(); 
+  getSiteApi('computador'); 
   restoreCart();
+  setSearchEvent();
 };
