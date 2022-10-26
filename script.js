@@ -233,6 +233,14 @@ function getSiteApi(product) {
   })
     .catch((e) => console.log(e));
 }
+
+function handleSearchClick(_e) {
+  if (getSearchInput.value.length >= 2) {
+    items.innerHTML = '';
+    getSiteApi(getSearchInput.value);
+  }
+}
+
 }
 
 window.onload = () => { 
