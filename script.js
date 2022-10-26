@@ -212,6 +212,12 @@ function createLoading() {
   return loadingElement;
 }
 
+function removeLoading() {
+  const loading = document.querySelector('.loading');
+
+  loading.remove();
+}
+
     .then((result) => {
       result.json()
     .then((another) => another.results.forEach((element, i) => {
