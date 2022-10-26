@@ -218,17 +218,21 @@ function removeLoading() {
   loading.remove();
 }
 
+function getSiteApi(product) {
+  cardsContainer.appendChild(createLoading());
+  fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${product}`)
     .then((result) => {
       result.json()
     .then((another) => another.results.forEach((element, i) => {
-      setTimeout(() => {
-        loading.remove();
-        if (i >= 20) return;
-        createProductItemElement(element);
-      }, 1500);
+      if (i >= 20) return;
+      createProductItemElement(element);
     }));
+    setTimeout(() => {
+      removeLoading();
+    }, 1500);
   })
-    .catch(() => console.log('Error'));
+    .catch((e) => console.log(e));
+}
 }
 
 window.onload = () => { 
