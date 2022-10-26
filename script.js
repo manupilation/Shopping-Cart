@@ -3,7 +3,11 @@
 const getCart = document.querySelector('.cart__items');
 const getDelButton = document.querySelector('.empty-cart');
 const getTotalPrice = document.querySelector('.total-price');
-const loading = document.querySelector('.loading');
+const getSearchInput = document.querySelector('#searchInput');
+const search = document.querySelector('.search-img');
+const cardsContainer = document.querySelector('.cards-container');
+const items = document.querySelector('.items');
+
 //= =============                   ==============
 
 //= ============= Começo do código ==============
