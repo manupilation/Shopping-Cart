@@ -181,7 +181,6 @@ function createProductItemElement({
     price,
     permalink,
   }) {
-  const items = document.querySelector('.items');
   const section = document.createElement('section');
   section.className = 'item';
   
