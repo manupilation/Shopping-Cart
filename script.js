@@ -3,7 +3,11 @@
 const getCart = document.querySelector('.cart__items');
 const getDelButton = document.querySelector('.empty-cart');
 const getTotalPrice = document.querySelector('.total-price');
-const loading = document.querySelector('.loading');
+const getSearchInput = document.querySelector('#searchInput');
+const search = document.querySelector('.search-img');
+const cardsContainer = document.querySelector('.cards-container');
+const items = document.querySelector('.items');
+
 //= =============                   ==============
 
 //= ============= Começo do código ==============
@@ -177,7 +181,6 @@ function createProductItemElement({
     price,
     permalink,
   }) {
-  const items = document.querySelector('.items');
   const section = document.createElement('section');
   section.className = 'item';
   
@@ -201,22 +204,57 @@ function createProductItemElement({
 //   return item.querySelector('span.item__sku').innerText;
 // }
 
-function getSiteApi() {
-  fetch('https://api.mercadolibre.com/sites/MLB/search?q=computador')
+function createLoading() {
+  const loadingElement = document.createElement('section');
+
+  loadingElement.classList.add('loading');
+
+  return loadingElement;
+}
+
+function removeLoading() {
+  const loading = document.querySelector('.loading');
+
+  loading.remove();
+}
+
+function getSiteApi(product) {
+  cardsContainer.appendChild(createLoading());
+  fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${product}`)
     .then((result) => {
       result.json()
     .then((another) => another.results.forEach((element, i) => {
-      setTimeout(() => {
-        loading.remove();
-        if (i >= 20) return;
-        createProductItemElement(element);
-      }, 1500);
+      if (i >= 20) return;
+      createProductItemElement(element);
     }));
+    setTimeout(() => {
+      removeLoading();
+    }, 1500);
   })
-    .catch(() => console.log('Error'));
+    .catch((e) => console.log(e));
+}
+
+function handleSearchClick(_e) {
+  if (getSearchInput.value.length >= 2) {
+    items.innerHTML = '';
+    getSiteApi(getSearchInput.value);
+  }
+}
+
+function handleEnterSearch(event) {
+  if (event.key === 'Enter' && getSearchInput.value.length >= 2) {
+    items.innerHTML = '';
+    getSiteApi(getSearchInput.value);
+  }
+}
+
+function setSearchEvent() {
+  search.addEventListener('click', handleSearchClick);
+  getSearchInput.addEventListener('keypress', handleEnterSearch);
 }
 
 window.onload = () => { 
-  getSiteApi(); 
+  getSiteApi('computador'); 
   restoreCart();
+  setSearchEvent();
 };
