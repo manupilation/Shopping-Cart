@@ -241,6 +241,13 @@ function handleSearchClick(_e) {
   }
 }
 
+function handleEnterSearch(event) {
+  if (event.key === 'Enter' && getSearchInput.value.length >= 2) {
+    items.innerHTML = '';
+    getSiteApi(getSearchInput.value);
+  }
+}
+
 }
 
 window.onload = () => { 
