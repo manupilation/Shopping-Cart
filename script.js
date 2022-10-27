@@ -102,16 +102,18 @@ getCart.addEventListener('click', (cartItemClickListener));
 function createCartItemElement({ id: sku, title: name, price: salePrice }) {
   const li = document.createElement('li');
   const p = document.createElement('p');
+  const itemTitle = document.createElement('p');
 
   p.className = 'cart_name grid-cl-f';
   p.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
   p.hidden = true;
 
   li.className = 'cart__item';
-  li.innerText = reduceName(name);
+  itemTitle.innerText = reduceName(name);
 
   li.addEventListener('click', cartItemClickListener);
   li.appendChild(p);
+  li.appendChild(itemTitle);
   getCart.appendChild(li);
 }
 
