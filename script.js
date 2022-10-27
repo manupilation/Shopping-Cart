@@ -237,7 +237,9 @@ function createLoading() {
 function removeLoading() {
   const loading = document.querySelector('.loading');
 
-  loading.remove();
+  if (loading) {
+    loading.remove();
+  }
 }
 
 function getSiteApi(product) {
