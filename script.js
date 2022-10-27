@@ -54,7 +54,7 @@ function calcTotalPrice() {
   const calc = products.filter((prod) => prod !== undefined).map((product) => {
     const removeHTML = product.substring(product.indexOf('| PRICE'));
 
-    const removePipesAndPrice = removeHTML.substring(10);
+    const removePipesAndPrice = removeHTML.substring(10, removeHTML.indexOf('</p>'));
 
     return removePipesAndPrice;
   }).reduce((a, b) => Number(a) + Number(b), 0);
