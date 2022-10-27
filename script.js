@@ -92,11 +92,6 @@ function createCustomElement(element, className, innerText) {
   return newElement;
 }
 
-function cartItemClickListener(event) {
-  event.target.remove();
-  saveCart();
-}
-
 function deleteAllCart() {
   getCart.innerHTML = '';
   saveCart();
@@ -283,4 +278,5 @@ window.onload = () => {
   getSiteApi('computador'); 
   restoreCart();
   setSearchEvent();
+  setDeleteItemOnCart();
 };
