@@ -6,6 +6,7 @@ const LOADING = '.loading';
 const ITEM_SELECTOR = '.item';
 const ADD_CART_BUTTON = '.item__add'
 const CART_ITEMS = '.cart__items'
+const DELETE_BTN = '.delete-container'
 const EMPTY_CART_BUTTON = '.empty-cart'
 const TOTAL_PRICE = '.total-price'
 
@@ -84,17 +85,17 @@ describe('Shopping Cart Project', () => {
       addToCart(19);
       addToCart(11);
       addToCart(15);
-      cy.get(CART_ITEMS)
+      cy.get(DELETE_BTN)
         .children()
         .eq(1)
         .click()
       countCart(2);
-      cy.get(CART_ITEMS)
+      cy.get(DELETE_BTN)
         .children()
         .eq(1)
         .click()
       countCart(1);
-      cy.get(CART_ITEMS)
+      cy.get(DELETE_BTN)
         .children()
         .eq(0)
         .click()
