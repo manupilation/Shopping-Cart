@@ -59,19 +59,11 @@ function getLocalStorageProducts() {
 }
 
 function calcTotalPrice() {
-  const getProducts = getLocalStorageProducts();
+  const prices = document.querySelectorAll('.item-price');
 
-  if (getProducts === undefined || getProducts === null) return 0;
-  
-  const products = getProducts.split('</p></li>');
-
-  const calc = products.filter((prod) => prod !== undefined).map((product) => {
-    const removeHTML = product.substring(product.indexOf('| PRICE'));
-
-    const removePipesAndPrice = removeHTML.substring(10, removeHTML.indexOf('</p>'));
-
-    return removePipesAndPrice;
-  }).reduce((a, b) => Number(a) + Number(b), 0);
+  const calc = Array.from(prices).filter((prod) => prod !== undefined)
+   .map((prodPrice) => String(prodPrice.innerText).replace('R$ ', ''))
+   .reduce((a, b) => Number(a) + Number(b), 0);
 
   return calc.toFixed(2);
 }
