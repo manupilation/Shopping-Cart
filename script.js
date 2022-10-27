@@ -77,10 +77,11 @@ function setTotalPrice() {
 function saveCart() {
   localStorage.setItem('produtosSalvos', getCart.innerHTML);
   setTotalPrice();
+  setDeleteItemOnCart();
 }
 
 function restoreCart() {
-  getCart.innerHTML = localStorage.getItem('produtosSalvos');
+  getCart.innerHTML = getLocalStorageProducts();
   setTotalPrice();
 }
 
