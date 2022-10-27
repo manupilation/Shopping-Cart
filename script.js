@@ -248,12 +248,14 @@ function getSiteApi(product) {
     .then((result) => {
       result.json()
     .then((another) => another.results.forEach((element, i) => {
-      if (i >= 20) return;
-      createProductItemElement(element);
+      setTimeout(() => {
+        if (i >= 20) {
+          removeLoading();
+          return;
+        }
+        createProductItemElement(element);
+      }, 1500);
     }));
-    setTimeout(() => {
-      removeLoading();
-    }, 1500);
   })
     .catch((e) => console.log(e));
 }
