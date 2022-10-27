@@ -23,6 +23,12 @@ function createProductImageElement(imageSource) {
   return imageDiv;
 }
 
+/** @param {PointerEvent} event */
+function cartItemClickListener(event) {
+  event.currentTarget.parentNode.remove();
+  saveCart();
+}
+
 /** @param {String} name */
 function reduceName(name) {
   if (name.includes(',')) {
