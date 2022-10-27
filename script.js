@@ -29,6 +29,14 @@ function cartItemClickListener(event) {
   saveCart();
 }
 
+function setDeleteItemOnCart() {
+  const deleteItemList = document.querySelectorAll('.delete-container');
+  
+  return Array.from(deleteItemList).forEach((delItem) => {
+    delItem.addEventListener('click', cartItemClickListener);
+  });
+}
+
 /** @param {String} name */
 function reduceName(name) {
   if (name.includes(',')) {
