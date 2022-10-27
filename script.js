@@ -104,23 +104,36 @@ function deleteAllCart() {
 
 getDelButton.addEventListener('click', (deleteAllCart));
 
-getCart.addEventListener('click', (cartItemClickListener));
-
 function createCartItemElement({ id: sku, title: name, price: salePrice }) {
   const li = document.createElement('li');
   const p = document.createElement('p');
   const itemTitle = document.createElement('p');
+  const itemPrice = document.createElement('span');
+  const deleteContainer = document.createElement('div');
+  const deleteButton = document.createElement('img');
 
-  p.className = 'cart_name grid-cl-f';
+  p.className = 'cart_name';
   p.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
   p.hidden = true;
 
   li.className = 'cart__item';
+  itemTitle.className = 'item-title';
+  itemPrice.classList = 'item-price';
+
+  deleteContainer.classList = 'delete-container';
+  deleteButton.classList = 'delete-button';
+  deleteButton.setAttribute('src', './public/delete_FILL0_wght400_GRAD0_opsz48.svg');
+
+  deleteContainer.appendChild(deleteButton);
+
+  itemPrice.innerText = `R$ ${salePrice}`;
   itemTitle.innerText = reduceName(name);
 
-  li.addEventListener('click', cartItemClickListener);
+  deleteContainer.addEventListener('click', cartItemClickListener);
   li.appendChild(p);
   li.appendChild(itemTitle);
+  li.appendChild(itemPrice);
+  li.appendChild(deleteContainer);
   getCart.appendChild(li);
 }
 
