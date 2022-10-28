@@ -200,7 +200,7 @@ describe('Shopping Cart Project', () => {
     });
   });
 
-  describe.only('8 - Cada item do carrinho possue o nome, valor e um botão para o apagar', () => {
+  describe('8 - Cada item do carrinho possue o nome, valor e um botão para o apagar', () => {
     beforeEach(() => {
       addToCart(1)
       addToCart(10)
@@ -220,6 +220,14 @@ describe('Shopping Cart Project', () => {
         expect(prices.eq(0)).to.contain(results[1].price);
         expect(prices.eq(1)).to.contain(results[10].price);
         expect(prices.eq(2)).to.contain(results[13].price);
+      });
+    });
+
+    it('Verifica se o nome do produto está presente', () => {
+      cy.get(DELETE_BTN).should((deleteBtn) => {
+        expect(deleteBtn.eq(0)).to.exist;
+        expect(deleteBtn.eq(1)).to.exist;
+        expect(deleteBtn.eq(2)).to.exist;
       });
     });
   });
