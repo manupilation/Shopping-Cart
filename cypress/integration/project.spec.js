@@ -4,13 +4,14 @@ const PROJECT_URL = './index.html'
 
 const LOADING = '.loading';
 const ITEM_SELECTOR = '.item';
-const ADD_CART_BUTTON = '.item__add'
-const CART_ITEMS = '.cart__items'
-const DELETE_BTN = '.delete-container'
-const EMPTY_CART_BUTTON = '.empty-cart'
-const TOTAL_PRICE = '.total-price'
-const BUY_BUTTON = '.buy'
-const ITEM_TITLE = '.item-title'
+const ADD_CART_BUTTON = '.item__add';
+const CART_ITEMS = '.cart__items';
+const DELETE_BTN = '.delete-container';
+const EMPTY_CART_BUTTON = '.empty-cart';
+const TOTAL_PRICE = '.total-price';
+const BUY_BUTTON = '.buy';
+const ITEM_TITLE = '.item-title';
+const ITEM_PRICE = '.item-price';
 
 
 let results = products.results
@@ -211,6 +212,14 @@ describe('Shopping Cart Project', () => {
         expect(titles.eq(0)).to.contain(`${reduceName(results[1].title)}`)
         expect(titles.eq(1)).to.contain(`${reduceName(results[10].title)}`)
         expect(titles.eq(2)).to.contain(`${reduceName(results[13].title)}`)
+      });
+    });
+
+    it('Verifica se o preço do produto está presente', () => {
+      cy.get(ITEM_PRICE).should((prices) => {
+        expect(prices.eq(0)).to.contain(results[1].price);
+        expect(prices.eq(1)).to.contain(results[10].price);
+        expect(prices.eq(2)).to.contain(results[13].price);
       });
     });
   });
