@@ -177,6 +177,12 @@ describe('Shopping Cart Project', () => {
         .click()
       countCart(0);
     });
+
+    it('O botão está presente', () => {
+      cy.visit(PROJECT_URL)
+      cy.get(BUY_BUTTON)
+      .should('exist');
+    });
   });
 
   describe('7 - Adicione um texto de `loading` durante uma requisição à API', () => {
