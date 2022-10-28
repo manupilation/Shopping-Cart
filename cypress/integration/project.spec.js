@@ -9,6 +9,9 @@ const CART_ITEMS = '.cart__items'
 const DELETE_BTN = '.delete-container'
 const EMPTY_CART_BUTTON = '.empty-cart'
 const TOTAL_PRICE = '.total-price'
+const BUY_BUTTON = '.buy'
+const ITEM_TITLE = '.item-title'
+
 
 let results = products.results
 
@@ -167,7 +170,7 @@ describe('Shopping Cart Project', () => {
     });
   });
 
-  describe('6 - Crie um botão para limpar carrinho de compras', () => {
+  describe('6 - Crie os botões utilitários do carrinho de compras', () => {
     it('Botão para limpar carrinho de compras', () => {
       addToCart(3);
       addToCart(0);
@@ -193,6 +196,22 @@ describe('Shopping Cart Project', () => {
         .should('exist')
         .wait(4000)
         .should('not.exist');
+    });
+  });
+
+  describe.only('8 - Cada item do carrinho possue o nome, valor e um botão para o apagar', () => {
+    beforeEach(() => {
+      addToCart(1)
+      addToCart(10)
+      addToCart(13)
+    });
+
+    it('Verifica se o nome do produto está presente', () => {
+      cy.get(ITEM_TITLE).should((titles) => {
+        expect(titles.eq(0)).to.contain(`${reduceName(results[1].title)}`)
+        expect(titles.eq(1)).to.contain(`${reduceName(results[10].title)}`)
+        expect(titles.eq(2)).to.contain(`${reduceName(results[13].title)}`)
+      });
     });
   });
 });
