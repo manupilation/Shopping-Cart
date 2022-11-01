@@ -163,7 +163,7 @@ describe('Shopping Cart Project', () => {
       checkPrice(results, [5, 12, 16]);
       addToCart(15);
       checkPrice(results, [5, 12, 16, 15]);
-      cy.get(CART_ITEMS)
+      cy.get(DELETE_BTN)
         .children()
         .eq(1)
         .click()
