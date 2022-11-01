@@ -116,17 +116,20 @@ function deleteAllCart() {
 
 getDelButton.addEventListener('click', (deleteAllCart));
 
-function createCartItemElement({ id: sku, title: name, price: salePrice }) {
+function createCartItemElement({ id, title: name, price: salePrice }) {
   const li = document.createElement('li');
+  const itemId = document.createElement('span');
   const p = document.createElement('p');
   const itemTitle = document.createElement('p');
   const itemPrice = document.createElement('span');
   const deleteContainer = document.createElement('div');
   const deleteButton = document.createElement('img');
 
-  p.className = 'cart_name';
-  p.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
-  p.hidden = true;
+  p.className = 'cart-text font-1-s';
+
+  itemId.innerText = id;
+  itemId.classList = 'item-id';
+  itemId.hidden = true;
 
   li.className = 'cart__item';
   itemTitle.className = 'item-title';
@@ -138,13 +141,14 @@ function createCartItemElement({ id: sku, title: name, price: salePrice }) {
 
   deleteContainer.appendChild(deleteButton);
 
-  itemPrice.innerText = `R$ ${salePrice}`;
+  itemPrice.innerText = `R$ ${salePrice.toFixed(2)}`;
   itemTitle.innerText = reduceName(name);
 
   deleteContainer.addEventListener('click', cartItemClickListener);
+  p.appendChild(itemTitle);
+  p.appendChild(itemPrice);
+  li.appendChild(itemId);
   li.appendChild(p);
-  li.appendChild(itemTitle);
-  li.appendChild(itemPrice);
   li.appendChild(deleteContainer);
   getCart.appendChild(li);
 }
