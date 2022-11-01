@@ -137,7 +137,7 @@ function createCartItemElement({ id, title: name, price: salePrice }) {
 
   deleteContainer.classList = 'delete-container';
   deleteButton.classList = 'delete-button';
-  deleteButton.setAttribute('src', './public/delete_FILL0_wght400_GRAD0_opsz48.svg');
+  deleteButton.setAttribute('src', './images/delete_FILL0_wght400_GRAD0_opsz48.svg');
 
   deleteContainer.appendChild(deleteButton);
 
