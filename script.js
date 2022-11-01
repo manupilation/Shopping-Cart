@@ -75,7 +75,17 @@ function setTotalPrice() {
 }
 
 function saveCart() {
-  localStorage.setItem('produtosSalvos', getCart.innerHTML);
+  const ids = document.querySelectorAll('.item-id');
+  const arrayOfIds = [];
+
+  if (ids) {
+    ids.forEach((id) => {
+      arrayOfIds.push(id.innerHTML);
+    });
+  }
+
+  localStorage.setItem('produtosSalvos', arrayOfIds);
+
   setTotalPrice();
   setDeleteItemOnCart();
 }
