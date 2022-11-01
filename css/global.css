@@ -67,8 +67,8 @@
 
 .font-1-m-sb {
   font-family: 'Montserrat', 'Times New Roman', Times, serif;
-  font-weight: 500;
-  font-size: .75rem;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .font-1-s-b,
@@ -100,7 +100,6 @@
   font-weight: 500;
 }
 
-
 .font-2-xs {
   font-size: .4rem;
   font-weight: 600;
@@ -116,12 +115,13 @@
   border-top-color: var(--color-y1);
   animation: is-rotating 1s infinite;
   border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .grid-cl-f {
   grid-column: 1 / -1;
 }
-
 
 @keyframes is-rotating {
   to {
