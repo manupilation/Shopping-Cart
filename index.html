@@ -23,7 +23,7 @@
           <label for="search" class="font-2-m-r cgw">Procurando por:</label>
           <input type="text" name="search" id="searchInput" placeholder="">
           <div class="search-img">
-            <img src="./public/search_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+            <img src="./images/search_FILL0_wght400_GRAD0_opsz48.svg" alt="">
           </div>
         </div>
       </div>
@@ -33,11 +33,20 @@
         <section class="items"></section>
       </div>
       <div class="cart-container">
-        <section class="cart">
-          <h2 class="cart__title">Carrinho de compras</h2>
-          <p class="total-price"></p>
-          <button class="empty-cart">Esvaziar carrinho</button>
+        <section class="cart-section">
+          <div class="cart-header">
+            <div class="cart-image">
+              <img src="./images/shopping_cart_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+            </div>
+          </div>
+
           <ul class="cart__items"></ul>
+          <p class="total-price font-1-m-sb"></p>
+
+          <div class="options-container">
+            <a class="empty-cart font-2-xm-r cwp">Cancelar</a>
+            <a class="buy font-2-xm-r cwp">Comprar</a>
+          </div>
         </section>
       </div>
     </main>

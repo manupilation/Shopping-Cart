@@ -51,6 +51,7 @@
   padding: 15px;
   width: 150px;
   transition: .3s;
+  cursor: alias;
 }
 
 .js .item:hover {
@@ -189,6 +190,11 @@
   }
   .item {
     transform: scale(0.9);
+  }
+
+  .content-container {
+    margin-top: 30px;
+    margin-left: 25px;
   }
 }
 

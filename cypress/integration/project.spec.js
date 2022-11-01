@@ -4,10 +4,15 @@ const PROJECT_URL = './index.html'
 
 const LOADING = '.loading';
 const ITEM_SELECTOR = '.item';
-const ADD_CART_BUTTON = '.item__add'
-const CART_ITEMS = '.cart__items'
-const EMPTY_CART_BUTTON = '.empty-cart'
-const TOTAL_PRICE = '.total-price'
+const ADD_CART_BUTTON = '.item__add';
+const CART_ITEMS = '.cart__items';
+const DELETE_BTN = '.delete-container';
+const EMPTY_CART_BUTTON = '.empty-cart';
+const TOTAL_PRICE = '.total-price';
+const BUY_BUTTON = '.buy';
+const ITEM_TITLE = '.item-title';
+const ITEM_PRICE = '.item-price';
+
 
 let results = products.results
 
@@ -84,17 +89,17 @@ describe('Shopping Cart Project', () => {
       addToCart(19);
       addToCart(11);
       addToCart(15);
-      cy.get(CART_ITEMS)
+      cy.get(DELETE_BTN)
         .children()
         .eq(1)
         .click()
       countCart(2);
-      cy.get(CART_ITEMS)
+      cy.get(DELETE_BTN)
         .children()
         .eq(1)
         .click()
       countCart(1);
-      cy.get(CART_ITEMS)
+      cy.get(DELETE_BTN)
         .children()
         .eq(0)
         .click()
@@ -158,7 +163,7 @@ describe('Shopping Cart Project', () => {
       checkPrice(results, [5, 12, 16]);
       addToCart(15);
       checkPrice(results, [5, 12, 16, 15]);
-      cy.get(CART_ITEMS)
+      cy.get(DELETE_BTN)
         .children()
         .eq(1)
         .click()
@@ -166,7 +171,7 @@ describe('Shopping Cart Project', () => {
     });
   });
 
-  describe('6 - Crie um botão para limpar carrinho de compras', () => {
+  describe('6 - Crie os botões utilitários do carrinho de compras', () => {
     it('Botão para limpar carrinho de compras', () => {
       addToCart(3);
       addToCart(0);
@@ -175,6 +180,12 @@ describe('Shopping Cart Project', () => {
       cy.get(EMPTY_CART_BUTTON)
         .click()
       countCart(0);
+    });
+
+    it('O botão está presente', () => {
+      cy.visit(PROJECT_URL)
+      cy.get(BUY_BUTTON)
+      .should('exist');
     });
   });
 
@@ -186,6 +197,38 @@ describe('Shopping Cart Project', () => {
         .should('exist')
         .wait(4000)
         .should('not.exist');
+    });
+  });
+
+  describe('8 - Cada item do carrinho possue o nome, valor e um botão para o apagar', () => {
+    beforeEach(() => {
+      addToCart(1)
+      addToCart(10)
+      addToCart(13)
+    });
+
+    it('Verifica se o nome do produto está presente', () => {
+      cy.get(ITEM_TITLE).should((titles) => {
+        expect(titles.eq(0)).to.contain(`${reduceName(results[1].title)}`)
+        expect(titles.eq(1)).to.contain(`${reduceName(results[10].title)}`)
+        expect(titles.eq(2)).to.contain(`${reduceName(results[13].title)}`)
+      });
+    });
+
+    it('Verifica se o preço do produto está presente', () => {
+      cy.get(ITEM_PRICE).should((prices) => {
+        expect(prices.eq(0)).to.contain(results[1].price);
+        expect(prices.eq(1)).to.contain(results[10].price);
+        expect(prices.eq(2)).to.contain(results[13].price);
+      });
+    });
+
+    it('Verifica se o nome do produto está presente', () => {
+      cy.get(DELETE_BTN).should((deleteBtn) => {
+        expect(deleteBtn.eq(0)).to.exist;
+        expect(deleteBtn.eq(1)).to.exist;
+        expect(deleteBtn.eq(2)).to.exist;
+      });
     });
   });
 });
