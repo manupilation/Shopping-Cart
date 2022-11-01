@@ -90,8 +90,15 @@ function saveCart() {
   setDeleteItemOnCart();
 }
 
-function restoreCart() {
-  getCart.innerHTML = getLocalStorageProducts();
+async function restoreCart() {
+  const ids = getLocalStorageProducts().split(',');
+
+  if (ids[0].length > 0) {
+    ids.forEach((id) => {
+      setItemOnCart(id);
+    });
+  }
+
   setTotalPrice();
 }
 
