@@ -151,7 +151,7 @@
   }
 
   .content-container {
-    grid-template-columns: 2.5fr 1fr;
+    grid-template-columns: 2.3fr 1fr;
   }
 }
 
@@ -167,26 +167,67 @@
 }
 
 @media (max-width: 820px) {
+  .cards-container {
+    padding: 20px 20px;
+  }
+
   .items {
-    grid-template-columns: repeat(1, auto);
+    grid-template-columns: repeat(2, auto);
     justify-content: center;
-    gap: 50px 0px;
+    gap: 10px 10px;
     margin-top: -10px;
   }
 
+  .js .item:hover {
+    transform: scale(1);
+  }
+
   .item {
-    transform: scale(1.1);
+    transform: scale(.9);
   }
 
   .content-container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
   }
 }
 
-@media (max-width: 570px) {
+@media (max-width: 760px) {
+  .cards-container {
+    padding: 15px 15px;
+  }
+
+  .js .item:hover {
+    transform: scale(.9);
+  }
+
+  .item {
+    transform: scale(.8);
+  }
+
   .items {
     gap: 0px 0px;
-    margin-top: -30px;
+    margin-top: -10px;
+  }
+
+  .content-container {
+    grid-template-columns: 1.8fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .js .item:hover {
+    transform: scale(1);
+  }
+
+  .item {
+    transform: scale(.3);
+  }
+  
+  .items {
+    grid-template-columns: repeat(2, auto);
+    gap: 0px 0px;
+    margin-top: 10px;
   }
   .item {
     transform: scale(0.9);
@@ -198,23 +239,47 @@
   }
 }
 
-@media (max-width: 500px) {
-  .items {
-    margin-top: -80px;
+@media (max-width: 600px) {
+  .js .item:hover {
+    transform: scale(1.2);
   }
   .item {
-    transform: scale(0.6);
-    margin-bottom: -100px;
+    transform: scale(1.2);
+  }
+
+  .items {
+    margin-top: 20px;
+    grid-template-columns: repeat(1, auto);
+    gap: 80px;
+  }
+}
+
+@media (max-width: 515px) {
+  .items {
+    margin-top: 20px;
+    grid-template-columns: repeat(1, auto);
+    gap: 40px;
+  }
+
+  .js .item:hover {
+    transform: scale(1);
+  }
+  .item {
+    transform: scale(1);
   }
 }
 
 @media (max-width: 400px) {
   .items {
-    margin-top: -100px;
+    gap: 10px;
+  }
+
+  .js .item:hover {
+    transform: scale(.8);
   }
 
   .item {
-    transform: scale(0.5);
-    margin-bottom: -140px;
+    transform: scale(.8);
+    /* margin-bottom: -140px; */
   }
 }
