@@ -102,7 +102,7 @@ async function restoreCart() {
   setTotalPrice();
 }
 
-function createCustomElement(element, className, innerText) {
+function createCustomElement(element, className, innerText = '') {
   const newElement = document.createElement(element);
   newElement.className = className;
   newElement.innerText = innerText;
@@ -117,34 +117,20 @@ function deleteAllCart() {
 getDelButton.addEventListener('click', (deleteAllCart));
 
 function createCartItemElement({ id, title: name, price: salePrice }) {
-  const li = document.createElement('li');
-  const itemId = document.createElement('span');
-  const p = document.createElement('p');
-  const itemTitle = document.createElement('p');
-  const itemPrice = document.createElement('span');
-  const deleteContainer = document.createElement('div');
-  const deleteButton = document.createElement('img');
+  const li = createCustomElement('li', 'cart__item');
+  const itemId = createCustomElement('span', 'item-id', id);
+  const p = createCustomElement('p', 'cart-text font-1-s');
+  const itemTitle = createCustomElement('p', 'item-title', reduceName(name));
+  const itemPrice = createCustomElement('span', 'item-price', `R$ ${salePrice.toFixed(2)}`);
+  const deleteContainer = createCustomElement('div', 'delete-container');
+  const deleteButton = createCustomElement('img', 'delete-button');
 
-  p.className = 'cart-text font-1-s';
-
-  itemId.innerText = id;
-  itemId.classList = 'item-id';
   itemId.hidden = true;
 
-  li.className = 'cart__item';
-  itemTitle.className = 'item-title';
-  itemPrice.classList = 'item-price';
-
-  deleteContainer.classList = 'delete-container';
-  deleteButton.classList = 'delete-button';
   deleteButton.setAttribute('src', './images/delete_FILL0_wght400_GRAD0_opsz48.svg');
-
   deleteContainer.appendChild(deleteButton);
-
-  itemPrice.innerText = `R$ ${salePrice.toFixed(2)}`;
-  itemTitle.innerText = reduceName(name);
-
   deleteContainer.addEventListener('click', cartItemClickListener);
+
   p.appendChild(itemTitle);
   p.appendChild(itemPrice);
   li.appendChild(itemId);
